@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.11.9'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -30,6 +30,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install pytest
+        run: |
+          pip install pytest  # Directly install pytest if not in requirements.txt
+
       # Step 4: Run tests
       - name: Run tests
-        run: pytest
+        run: |
+          pytest test  # Specify the directory where your tests are located
