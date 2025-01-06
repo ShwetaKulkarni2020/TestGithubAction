@@ -30,6 +30,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install transformers
+        run: pip install transformers  # Install the 'transformers' library
+
       - name: Install pytest
         run: |
           pip install pytest  # Directly install pytest if not in requirements.txt
