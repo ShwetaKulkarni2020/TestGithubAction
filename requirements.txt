@@ -2,3 +2,5 @@ pandas
 pytest
 torch
 transformers
+rouge-score
+evidently
