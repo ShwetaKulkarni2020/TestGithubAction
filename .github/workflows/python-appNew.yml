@@ -42,6 +42,9 @@ jobs:
       - name: Set PYTHONPATH for llm1 module
         run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV  # Set PYTHONPATH to the src/ directory
 
+      - name: Check PYTHONPATH
+        run: echo $PYTHONPATH
+
       # Step 4: Run tests
       - name: Run tests
         run: |
