@@ -56,7 +56,7 @@ jobs:
     # Step 4: Run tests
       - name: Run tests
         run: |
-          PYTHONPATH=$(pwd)/src pytest test  # Run pytest with the correct PYTHONPATH
+          pytest test  # Run pytest from the folder test
 
   
       
