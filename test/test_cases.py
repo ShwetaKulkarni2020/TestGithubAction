@@ -1,12 +1,10 @@
 import pytest
 import torch
 from transformers import T5ForConditionalGeneration, T5Tokenizer
-from llm1 import train_rl, compute_rouge
-#import sys
-#sys.path.insert(0,'D:\MTech Projects\CapstoneProject\TextSummary_CI\CD\GitExample\src')
 import sys
-print(sys.path)
-
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+from llm1 import train_rl, compute_rouge
 
 
 # Example usage
