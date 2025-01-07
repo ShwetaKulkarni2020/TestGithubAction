@@ -41,15 +41,18 @@ jobs:
 
       
 
-      - name: Set and print PYTHONPATH
-        run: |
-          export PYTHONPATH=$(pwd)/src
-          echo "PYTHONPATH=$PYTHONPATH"  # This will print the PYTHONPATH in the same step
+      - name: Set PYTHONPATH for llm1 module
+        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV  # Set PYTHONPATH to the src/ directory
 
       - name: Check PYTHONPATH
-        run: echo $PYTHONPATH
+        run: echo $PYTHONPATH  # This will print PYTHONPATH to help debug
 
-      # Step 4: Run tests
+    
+
+    # Step 4: Run tests
       - name: Run tests
         run: |
-          pytest test  # Specify the directory where your tests are located
+          PYTHONPATH=$(pwd)/src pytest test  # Run pytest with the correct PYTHONPATH
+
+  
+      
