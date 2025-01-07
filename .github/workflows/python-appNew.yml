@@ -39,8 +39,12 @@ jobs:
         run: |
           pip install pytest  # Directly install pytest if not in requirements.txt
 
-      - name: Set PYTHONPATH for llm1 module
-        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV  # Set PYTHONPATH to the src/ directory
+      
+
+      - name: Set and print PYTHONPATH
+        run: |
+          export PYTHONPATH=$(pwd)/src
+          echo "PYTHONPATH=$PYTHONPATH"  # This will print the PYTHONPATH in the same step
 
       - name: Check PYTHONPATH
         run: echo $PYTHONPATH
