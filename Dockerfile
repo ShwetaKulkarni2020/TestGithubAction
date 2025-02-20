@@ -8,6 +8,11 @@ COPY . /app/
 WORKDIR /app
 
 # Install any needed dependencies specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r requirem
 
-ENTRYPOINT ./entrypoint.sh
+# Make sure entrypoint.sh is executable
+RUN chmod +x /app/entrypoint.sh
+
+# Run your entrypoint script
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
+#ENTRYPOINT ./entrypoint.sh
