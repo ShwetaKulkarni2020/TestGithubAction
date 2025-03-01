@@ -2,12 +2,13 @@ name: Python CI
 
 # Trigger the workflow on any push to the main branch or pull request
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # Manual trigger only
+  #push:
+    #branches:
+      #- main
+  #pull_request:
+    #branches:
+      #- main
 
 jobs:
   test:

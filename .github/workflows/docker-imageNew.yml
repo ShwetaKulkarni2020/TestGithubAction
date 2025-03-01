@@ -1,0 +1,34 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:  # Manual trigger only
+  #push:
+    #branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Docker Login
+      uses: docker/login-action@v3.3.0
+      with:
+        # Username used to log against the Docker registry
+        username: shwetakpadaki # Use your actual secret or uncomment it
+        # Password or personal access token used to log against the Docker registry
+        password: dckr_pat_kA1vZj3cvcMDefFTsNMxcAt1peM  # Use your actual secret or uncomment it
+        # Specifies whether the given registry is ECR (auto, true or false)
+        ecr: false
+        # Log out from the Docker registry at the end of a job
+        logout: true  # Align it correctly with proper indentation
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag shwetakpadaki/cd-demo:1.0
+
+    - name: Push the Docker image
+      run: docker push shwetakpadaki/cd-demo:1.0
