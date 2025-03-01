@@ -2,12 +2,13 @@ name: Python CI
 
 # Trigger the workflow on any push to the main branch or pull request
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # Manual trigger only
+#  push:
+#    branches:
+ #     - main
+#  pull_request:
+#    branches:
+#      - main
 
 jobs:
   test:
@@ -30,11 +31,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install transformers
+        run: |
+          pip install transformers  # Directly install pytest if not in requirements.txt
+
+      - name: Install sentencepiece  # Install the SentencePiece library
+        run: |
+          pip install sentencepiece
+
+        
       - name: Install pytest
         run: |
           pip install pytest  # Directly install pytest if not in requirements.txt
 
-      # Step 4: Run tests
+      
+
+      - name: Set PYTHONPATH for llm1 module
+        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV  # Set PYTHONPATH to the src/ directory
+
+      - name: Check PYTHONPATH
+        run: echo $PYTHONPATH  # This will print PYTHONPATH to help debug
+
+    
+
+    # Step 4: Run tests
       - name: Run tests
         run: |
-          pytest test  # Specify the directory where your tests are located
+          pytest test  # Run pytest from the folder test
+
+  
+      

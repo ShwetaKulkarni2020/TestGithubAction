@@ -1,10 +1,10 @@
 import pytest
 import torch
 from transformers import T5ForConditionalGeneration, T5Tokenizer
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 from llm1 import train_rl, compute_rouge
-#import sys
-#sys.path.insert(0,'D:\MTech Projects\CapstoneProject\TextSummary_CI\CD\GitExample\src')
-
 
 
 # Example usage
@@ -44,3 +44,4 @@ def test_train_rl(num_epochs, lr):
     assert reward > 0, "The reward (ROUGE score) should be greater than zero, indicating meaningful summarization."
 
     print("\nTest completed successfully.")
+
