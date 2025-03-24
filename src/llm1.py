@@ -8,6 +8,8 @@ from evidently import ColumnMapping
 from evidently.report import Report
 from evidently.metric_preset import TextEvals
 from evidently.descriptors import TextLength
+import warnings
+warnings.filterwarnings("ignore", message="You are using the default legacy behaviour")
 
 # Initialize the model and tokenizer
 model_name = "t5-base"
