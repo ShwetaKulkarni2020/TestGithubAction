@@ -4,10 +4,10 @@ from rouge_score import rouge_scorer
 from torch.optim import AdamW
 from torch.nn import functional as F
 import pandas as pd
-from evidently import ColumnMapping
-from evidently.report import Report
-from evidently.metric_preset import TextEvals
-from evidently.descriptors import TextLength
+#from evidently import ColumnMapping
+#from evidently.report import Report
+#from evidently.metric_preset import TextEvals
+#from evidently.descriptors import TextLength
 import warnings
 warnings.filterwarnings("ignore", message="You are using the default legacy behaviour")
 
