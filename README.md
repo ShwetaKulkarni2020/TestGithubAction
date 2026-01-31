@@ -28,4 +28,5 @@ We are trying to automate the retraining process involved in GenAI models. So ev
 ## How to Run
 ```bash
 pip install -r requirements.txt
-python train.py
+python llm1.py
+python prompty.py
